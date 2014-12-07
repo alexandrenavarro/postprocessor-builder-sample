@@ -31,7 +31,7 @@ public class Main {
         // .withHandlers(s)
         // .build();
 
-        final PostProcessorDescriptor postProcessorDescriptor3 = PostProcessorDescriptorBuilder.create()
+        final PostProcessorDescriptor postProcessorDescriptor3 = DefaultPostProcessorDescriptorBuilder.create()
             .name("name")
             .pluginKey("pluginKey")
             .handlers("handler1", "handler2")
@@ -46,17 +46,17 @@ public class Main {
         // Force split
 
         System.out.println("postProcessorDescriptor3=" + postProcessorDescriptor3);
-        
+
         final PostProcessorDescriptor postProcessorDescriptor4 = CustomPostProcessorDescriptorBuilder.create()
-                .name("name2")
-                .pluginKey("pluginKey2")
-                .handlers("handler1", "handler2")
-                .measures("measure1", "measures2")
-                .addProperty("key1", "value2")
-                .addProperty("key2", "value2")
-                .leafLevels("leafLevel1")
-                .build();
-        
+            .name("name2")
+            .pluginKey("pluginKey2")
+            .handlers("handler1", "handler2")
+            .measures("measure1", "measures2")
+            .addProperty("key1", "value2")
+            .addProperty("key2", "value2")
+            .leafLevels("leafLevel1")
+            .build();
+
         System.out.println("postProcessorDescriptor4=" + postProcessorDescriptor4);
 
     }

@@ -8,7 +8,7 @@ import java.util.Properties;
  * @author anavarro - Dec 7, 2014
  *
  */
-public class CustomPostProcessorDescriptorBuilder extends PostProcessorDescriptorBuilder {
+public class CustomPostProcessorDescriptorBuilder extends AbstractPostProcessorDescriptorBuilder<CustomPostProcessorDescriptorBuilder> {
 
     private String[] leafLevels;
     
@@ -20,6 +20,11 @@ public class CustomPostProcessorDescriptorBuilder extends PostProcessorDescripto
         super();
     }
     
+    /**
+     * <p>create.</p>
+     *
+     * @return
+     */
     public static CustomPostProcessorDescriptorBuilder create() {
         return new CustomPostProcessorDescriptorBuilder();
     }
@@ -36,60 +41,11 @@ public class CustomPostProcessorDescriptorBuilder extends PostProcessorDescripto
         return this;
     }
     
-    
-    /**
-     * {@inheritDoc}
-     *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#name(java.lang.String)
-     */
-    public CustomPostProcessorDescriptorBuilder name(String aName) {
-        return (CustomPostProcessorDescriptorBuilder) super.name(aName);
-    }
 
     /**
      * {@inheritDoc}
      *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#pluginKey(java.lang.String)
-     */
-    @Override
-    public CustomPostProcessorDescriptorBuilder pluginKey(String aPluginKey) {
-        return (CustomPostProcessorDescriptorBuilder) super.pluginKey(aPluginKey);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#addProperty(java.lang.String, java.lang.String)
-     */
-    @Override
-    public CustomPostProcessorDescriptorBuilder addProperty(String aKey, String aValue) {
-        return (CustomPostProcessorDescriptorBuilder) super.addProperty(aKey, aValue);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#handlers(java.lang.String[])
-     */
-    @Override
-    public CustomPostProcessorDescriptorBuilder handlers(String... aHandlers) {
-        return (CustomPostProcessorDescriptorBuilder) super.handlers(aHandlers);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#measures(java.lang.String[])
-     */
-    @Override
-    public CustomPostProcessorDescriptorBuilder measures(String... aMeasures) {
-        return (CustomPostProcessorDescriptorBuilder) super.measures(aMeasures);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @see com.github.alexandrenavarro.postprocessorbuilder.PostProcessorDescriptorBuilder#build()
+     * @see com.github.alexandrenavarro.postprocessorbuilder.AbstractPostProcessorDescriptorBuilder#build()
      */
     @Override
     public PostProcessorDescriptor build() {

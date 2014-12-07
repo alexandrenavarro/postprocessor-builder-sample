@@ -3,36 +3,30 @@ package com.github.alexandrenavarro.postprocessorbuilder;
 import java.util.Properties;
 
 /**
- * <p>PostProcessorBuilder.</p>
+ * <p>AbstractPostProcessorDescriptorBuilder.</p>
  *
  * @author anavarro - Dec 7, 2014
+ * @param <B>
  *
  */
-public class PostProcessorDescriptorBuilder {
+public abstract class AbstractPostProcessorDescriptorBuilder<B extends AbstractPostProcessorDescriptorBuilder<B>> {
 
-    private String name;
-    private String pluginKey;
+    protected String name;
+    protected String pluginKey;
     
-    private String[] handlers;
-    private String[] measures;
-    private Properties properties = new Properties();
+    protected String[] handlers;
+    protected String[] measures;
+    protected Properties properties = new Properties();
     
     
     /**
      * Constructor.
      *
      */
-    protected PostProcessorDescriptorBuilder() {
+    protected AbstractPostProcessorDescriptorBuilder() {
+        super();
     }
     
-    /**
-     * <p>create.</p>
-     *
-     * @return
-     */
-    public static PostProcessorDescriptorBuilder create() {
-        return new PostProcessorDescriptorBuilder();
-    }
     
     /**
      * <p>name.</p>
@@ -40,35 +34,32 @@ public class PostProcessorDescriptorBuilder {
      * @param name
      * @return
      */
-    public PostProcessorDescriptorBuilder name(String name) {
+    public B name(String name) {
         this.name = name;
-        return this;
+        return ((B) this);
     }
     
 
     
-    public PostProcessorDescriptorBuilder pluginKey(String pluginKey) {
+    public B pluginKey(String pluginKey) {
         this.pluginKey = pluginKey;
-        return this;
+        return (B) this;
     }
     
-    public PostProcessorDescriptorBuilder addProperty(String key, String value) {
+    public B addProperty(String key, String value) {
         this.properties.put(key, value);
-        return this;
+        return (B) this;
     }
     
-    public PostProcessorDescriptorBuilder handlers(String... handlers) {
+    public B handlers(String... handlers) {
         this.handlers = handlers;
-        return this;
+        return (B) this;
     }
     
-    public PostProcessorDescriptorBuilder measures(String... measures) {
+    public B measures(String... measures) {
         this.measures = measures;
-        return this;
+        return (B) this;
     }
-    
-    
-    
     
     
     /**
