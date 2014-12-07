@@ -17,6 +17,7 @@ public abstract class AbstractPostProcessorDescriptorBuilder<B extends AbstractP
     protected String[] handlers;
     protected String[] measures;
     protected Properties properties = new Properties();
+
     
     
     /**
